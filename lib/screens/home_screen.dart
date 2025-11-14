@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:hive/hive.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -47,11 +47,11 @@ class _HomeScreenState extends State<HomeScreen> {
               Navigator.pop(context);
               setState(() {});
             },
-            child: Text("Delete"),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red,
               foregroundColor: Colors.white,
             ),
+            child: Text("Delete"),
           ),
         ],
       ),
@@ -71,9 +71,9 @@ class _HomeScreenState extends State<HomeScreen> {
             expenseBox.add(newExpense);
           });
         },
-        child: Icon(Icons.add),
         backgroundColor: Colors.indigoAccent,
         foregroundColor: Colors.white,
+        child: Icon(Icons.add),
       ),
       appBar: AppBar(title: Text("Expense Tracker")),
       body: Column(
@@ -178,15 +178,15 @@ class ExpenseCard extends StatelessWidget {
               ],
             ),
             Container(
-              child: Text(
-                "${amount.toStringAsFixed(2)}",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.blue, width: 2),
                 borderRadius: BorderRadius.circular(5.0),
               ),
               padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 6.0),
+              child: Text(
+                "${amount.toStringAsFixed(2)}",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
             ),
             Container(
               padding: EdgeInsetsDirectional.only(start: 8),

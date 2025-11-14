@@ -20,7 +20,7 @@ class _AddExpenseState extends State<AddExpenseScreen> {
       context: context,
       firstDate: DateTime(2020),
       lastDate: DateTime.now(),
-      initialDate: _selectedDate == null ? DateTime.now() : _selectedDate,
+      initialDate: _selectedDate ?? DateTime.now(),
     );
 
     if (pickedDate != null) {
@@ -108,7 +108,6 @@ class _AddExpenseState extends State<AddExpenseScreen> {
               children: [
                 ElevatedButton(
                   onPressed: () => submitForm(),
-                  child: Text("Add Expense"),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.indigoAccent,
                     foregroundColor: Colors.white,
@@ -116,15 +115,16 @@ class _AddExpenseState extends State<AddExpenseScreen> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
+                  child: Text("Add Expense"),
                 ),
                 SizedBox(width: 15.0),
                 ElevatedButton(
                   onPressed: () => resetForm(),
-                  child: Text("Reset"),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
                     foregroundColor: Colors.white,
                   ),
+                  child: Text("Reset"),
                 ),
               ],
             ),
